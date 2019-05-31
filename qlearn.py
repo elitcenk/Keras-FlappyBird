@@ -167,10 +167,8 @@ def trainNetwork(model, args):
             state = "explore"
         else:
             state = "train"
-
-        print("TIMESTEP", t, "/ STATE", state, \
-              "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", r_t, \
-              "/ Q_MAX ", np.max(Q_sa), "/ Loss ", loss)
+        if t % 100 == 0:
+            print("TIMESTEP", t, "/ STATE", state, "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", r_t, "/ Q_MAX ", np.max(Q_sa), "/ Loss ", loss)
 
     print("Episode finished!")
     print("************************")
